@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cat_select_scene"]
+[gd_scene load_steps=3 format=3 uid="uid://dpntptyrdssjk"]
 
 [ext_resource type="Script" path="res://scripts/cat_select.gd" id="1_cat_select"]
+[ext_resource type="Texture2D" uid="uid://cc4kvcfobju7j" path="res://assets/ui/cat_select_bg.png" id="2"]
 
 [node name="CatSelect" type="Control"]
 layout_mode = 3
@@ -11,39 +12,33 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cat_select")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color(1, 0.980392, 0.941176, 1)
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_top = 60.0
 grow_horizontal = 2
-theme_override_colors/font_color = Color(0.4, 0.266667, 0.2, 1)
-theme_override_font_sizes/font_size = 40
-text = "选择你的猫咪"
-horizontal_alignment = 1
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2")
+expand_mode = 1
+stretch_mode = 5
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.85
-offset_top = 130.0
+offset_left = 35.0
+offset_top = 250.0
+offset_right = -35.0
+offset_bottom = 930.0
 grow_horizontal = 2
-grow_vertical = 0
-horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
+grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 columns = 3
 
 [node name="ConfirmButton" type="Button" parent="."]
@@ -53,14 +48,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -100.0
-offset_right = 120.0
-offset_bottom = -30.0
+offset_left = -180.0
+offset_top = -200.0
+offset_right = 180.0
+offset_bottom = -115.0
 grow_horizontal = 2
 grow_vertical = 0
-disabled = true
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_disabled_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 28
-text = "带它回家"
+theme_override_colors/font_disabled_color = Color(0.8, 0.75, 0.7, 1)
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "带它回家  ›"
