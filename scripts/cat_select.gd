@@ -2,15 +2,15 @@ extends Control
 
 # 猫咪数据：名称 + 文件名
 const CATS := [
-	{"name": "橘猫", "file": "orange.png"},
-	{"name": "白猫", "file": "white.png"},
-	{"name": "三花猫", "file": "calico.png"},
-	{"name": "狸花猫", "file": "tabby.png"},
-	{"name": "银渐层", "file": "silver.png"},
-	{"name": "黑猫", "file": "black.png"},
-	{"name": "黑白奶牛猫", "file": "tuxedo.png"},
-	{"name": "布偶猫", "file": "ragdoll.png"},
-	{"name": "暹罗猫", "file": "siamese.png"},
+	{"name": "橘猫", "id": "orange", "file": "orange.png"},
+	{"name": "白猫", "id": "white", "file": "white.png"},
+	{"name": "三花猫", "id": "calico", "file": "calico.png"},
+	{"name": "狸花猫", "id": "tabby", "file": "tabby.png"},
+	{"name": "银渐层", "id": "silver", "file": "silver.png"},
+	{"name": "黑猫", "id": "black", "file": "black.png"},
+	{"name": "黑白奶牛猫", "id": "tuxedo", "file": "tuxedo.png"},
+	{"name": "布偶猫", "id": "ragdoll", "file": "ragdoll.png"},
+	{"name": "暹罗猫", "id": "siamese", "file": "siamese.png"},
 ]
 
 const CAT_IMAGE_PATH := "res://assets/cats/"
@@ -229,5 +229,6 @@ func _on_button_up() -> void:
 # 确认按钮点击
 func _on_confirm_pressed() -> void:
 	if selected_cat_index >= 0:
-		var cat_name: String = CATS[selected_cat_index]["name"]
-		print("Selected cat: ", cat_name)
+		var cat_data: Dictionary = CATS[selected_cat_index]
+		GameState.selected_cat_id = cat_data["id"]
+		get_tree().change_scene_to_file("res://scenes/room.tscn")
